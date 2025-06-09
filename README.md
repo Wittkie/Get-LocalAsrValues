@@ -47,7 +47,7 @@ ASROnlyPerRuleExclusions:
 
 # How it Works #
 
-Users can run the script after moving the "LocalAsrValueExtraction.ps1" script to the relevant machine they intend to gather the required values from and running it with the relevant permisions. Due to the script needing permission to view the Registry this will often mean the script must be run by a local administrator. Additionally, many environments will block the execution of unsigned scripts by default. To avoid adjusting this policy the script can be run with the "PowerShell -ExecutionPolicy Bypass -File" parameters such as in the following examle: PowerShell -ExecutionPolicy Bypass -File '.\LocalAsrValueExtraction.ps1'
+Users can run the script after moving the "LocalAsrValueExtraction.ps1" script to the relevant machine they intend to gather the required values from and running it with the relevant permissions. Due to the script needing permission to view the Registry this will often mean the script must be run by a local administrator. Additionally, many environments will block the execution of unsigned scripts by default. To avoid adjusting this policy the script can be run with the "PowerShell -ExecutionPolicy Bypass -File" parameters such as in the following example: PowerShell -ExecutionPolicy Bypass -File '.\LocalAsrValueExtraction.ps1'
 
 The script works by defining an output file location ($outputFilePath) to write the results of the script to. By default this value will be set to "~\Desktop\Local ASR Value Extraction Results".
 
