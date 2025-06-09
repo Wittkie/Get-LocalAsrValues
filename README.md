@@ -4,7 +4,7 @@ There are scenarios where Administrators are incapable of easily determining the
 
 This script will work with both Windows Desktops and Windows Servers.
 
-# Output#
+# Output #
 
 This script will produce the following output:
 
