@@ -47,22 +47,6 @@ The value for Use advanced protection against ransomware is set to Audit
 
 ASRRules: 5BEB7EFE-FD9A-4556-801D-275E5FFC04CC=2|26190899-1602-49e8-8b27-eb1d0a1ce869=2|D4F940AB-401B-4EFC-AADC-AD5F3C50688A=2|92E97FA1-2EDF-4476-BDD6-9DD0B4DDDC7B=2|01443614-cd74-433a-b99e-2ecdc07bfc25=2|D3E037E1-3EB8-44C8-A917-57927947596D=2|b2b3f03d-6a65-4f7b-a9c7-1c7ef74a9ba4=2|a8f5898e-1dc8-49a9-9878-85004b8a61e6=2|7674ba52-37eb-4a4f-a9a1-f0f9a1619a2c=2|9e6c4e1f-7d60-472f-ba1a-a39ef669e4b2=2|56a863a9-875e-4185-98a7-b882c64b5ce5=2|e6db77e5-3df2-4cf1-b95a-636979351e5b=2|c0033c00-d16d-4114-a5a0-dc9b3a7d2ceb=2|75668C1F-73B5-4CF0-BB93-3ECF5CB7CC84=2|c1db55ab-c21a-4637-bb3f-a12568109d35=2|d1e49aac-8f56-4280-b9ba-993a6d77406c=2|33ddedf1-c6e0-47cb-833e-de6133960387=2|BE9BA2D9-53EA-4CDC-84E5-9B1EEEE46550=2|3B576869-A4EC-4529-8536-B80A7769E899=2
 
-ASROnlyExclusions: 
+ASROnlyExclusions:
 
-ASROnlyPerRuleExclusions: 
-
-# How it Works #
-
-Users can run the script after moving the "LocalAsrValueExtraction.ps1" script to the relevant machine they intend to gather the required values from and running it with the relevant permissions. Due to the script needing permission to view the Registry this will often mean the script must be run by a local administrator. Additionally, many environments will block the execution of unsigned scripts by default. To avoid adjusting this policy the script can be run with the "PowerShell -ExecutionPolicy Bypass -File" parameters such as in the following example: PowerShell -ExecutionPolicy Bypass -File '.\LocalAsrValueExtraction.ps1'
-
-The script works by defining an output file location ($outputFilePath) to write the results of the script to. By default this value will be set to "~\Desktop\Local ASR Value Extraction Results".
-
-The script will then write the time the script was run, the name of the Device that the script was run on, and the versions of the Operating System and Defender on the Device.
-
-By default ASR value configurations are stored in the HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Policy Manager\ASRRules Registry. As such the script makes a copy of this value into the $asrRules variable to minimize the need to interact directly with the Registry.
-
-The script then defines a common function (Get-AsrValue) that can be called to perform a string search of the stored values copied from the Registry.
-
-Each specific ASR rule is then defined to update the global variables for the unique Name, and GUID of the relevant rule, and to call the Get-AsrValue function to perform the string search of the stored Registry values based on each specific rule. The outcome of this search is then appended to the defined output file.
-
-Finally the script captures and appends the raw output of the Registry values from the ASRRules (defined previously as $asrRules), ASROnlyExclusions (defined by the variable $asrOnlyExclusions targeting the HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Policy Manager\ASROnlyExclusions Registry value), and the ASROnlyPerRuleExclusions (defined by the variable $asrOnlyPerRuleExclusions targeting the HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Policy Manager\ASROnlyPerRuleExclusions Registry value) to the defined file output location. This provides additional in depth information to assist with troubleshooting, and to ensure that the script is functioning as intended.
+ASROnlyPerRuleExclusions:
