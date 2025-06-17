@@ -17,12 +17,12 @@ possibility of such damages
 
 <#
 .Synopsis
-    Get-LocalASRValues
+    Get-LocalAsrValues
 .DESCRIPTION
     To identify the configured Attack Surface Reduction rules in place on a Windows Device.
     The script needs to run as an administrator.
 .EXAMPLE
-    .\Get-LocalASRValues.ps1
+    .\Get-LocalAsrValues.ps1
  
 .INPUTS
     No inputs.
