@@ -23,7 +23,7 @@ OSVersion: 10.0.19045\
 AMEngineVersion: 1.1.25050.6\
 AMProductVersion: 4.18.25050.5\
 AntiSpywareSignatureVersion: 1.431.76.0\
-AntivirusSignatureVersion: 1.431.76.0\
+AntivirusSignatureVersion: 1.431.76.0
 
 The value for Block abuse of exploited vulnerable signed drivers is set to Audit\
 The value for Block Adobe Reader from creating child processes is set to Audit\
