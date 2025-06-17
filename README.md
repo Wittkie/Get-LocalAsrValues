@@ -29,7 +29,7 @@ The value for Block abuse of exploited vulnerable signed drivers is set to Audit
 The value for Block Adobe Reader from creating child processes is set to Audit\
 The value for Block all Office applications from creating child processes is set to Audit\
 The value for Block credential stealing from the Windows local security authority subsystem (lsass.exe) is set to Audit\
-The value for Block credential stealing from the Windows local security authority subsystem (lsass.exe) is set to Audit\
+The value for Block executable content from email client and webmail is set to Audit\
 The value for Block executable files from running unless they meet a prevalence, age, or trusted list criterion is set to Audit\
 The value for Block execution of potentially obfuscated scripts is set to Audit\
 The value for Block JavaScript or VBScript from launching downloaded executable content is set to Audit\
