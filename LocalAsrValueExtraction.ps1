@@ -1,4 +1,4 @@
-# Author: Wittkie #
+ # Author: Wittkie #
 # Date: 2025-06-02 #
 # Name: Local ASR Value Extraction #
 # Purpose: To identify the configured Attack Surface Reduction rules in place on a Windows Device #
@@ -7,8 +7,14 @@
 $outputFilePath = "~\Desktop\Local ASR Value Extraction Results"
 
 # Write information #
-Get-Date -Format "yyyy/MM/dd HH:mm K" | Write-Output | Out-File -FilePath $outputFilePath
-Write-Output "Device: $env:COMPUTERNAME`n" | Out-File -FilePath $outputFilePath -Append
+Get-Date -Format "yyyy/MM/dd HH:mm K`n" | Write-Output | Out-File -FilePath $outputFilePath
+Write-Output "Device: $env:COMPUTERNAME" | Out-File -FilePath $outputFilePath -Append
+Write-Output "OSName: $((Get-ComputerInfo).OSName)" | Out-File -FilePath $outputFilePath -Append
+Write-Output "OSVersion: $((Get-ComputerInfo).OSVersion)" | Out-File -FilePath $outputFilePath -Append
+Write-Output "AMEngineVersion: $((Get-MpComputerStatus).AMEngineVersion)" | Out-File -FilePath $outputFilePath -Append
+Write-Output "AMProductVersion: $((Get-MpComputerStatus).AMProductVersion)" | Out-File -FilePath $outputFilePath -Append
+Write-Output "AntiSpywareSignatureVersion: $((Get-MpComputerStatus).AntiSpywareSignatureVersion)" | Out-File -FilePath $outputFilePath -Append
+Write-Output "AntivirusSignatureVersion: $((Get-MpComputerStatus).AntivirusSignatureVersion)`n" | Out-File -FilePath $outputFilePath -Append
 
 # Get the ASRRules registry value and store it in a variable #
 $asrRules = (Get-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Policy Manager" -Name "ASRRules").ASRRules
